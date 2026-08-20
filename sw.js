@@ -14,8 +14,8 @@ const SHELL_ASSETS = [
   './',
   './index.html',
   './manifest.json',
-  './icon.svg',
-  './icon-maskable.svg'
+  './icon-192.png',
+  './icon-512.png'
 ];
 
 const FONT_HOSTS = [
