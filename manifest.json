@@ -2,28 +2,25 @@
   "name": "The Regimen — Scalp, Skin & Beard Protocol",
   "short_name": "The Regimen",
   "description": "Formulation sheet and application protocol for the scalp, body, and beard oil blends, minoxidil, and microneedling.",
-  "start_url": "./",
-  "scope": "./",
-  "id": "./",
+  "start_url": "/hair-beard/",
+  "scope": "/hair-beard/",
   "display": "standalone",
-  "orientation": "portrait",
   "background_color": "#150C03",
   "theme_color": "#D4A017",
-  "categories": ["health", "lifestyle"],
+  "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
+      "src": "/hair-beard/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "icon-maskable.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "maskable"
-    }
-  ],
+      "src": "/hair-beard/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+      ],
   "shortcuts": [
     {
       "name": "The Blends",
