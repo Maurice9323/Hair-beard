@@ -5,7 +5,7 @@
      - Google Fonts       : cache-first in a separate runtime cache
    Bump VERSION whenever you change the precache list. */
 
-const VERSION = 'v1';
+const VERSION = 'v2';
 const PREFIX = 'regimen';
 const SHELL_CACHE = PREFIX + '-shell-' + VERSION;
 const RUNTIME_CACHE = PREFIX + '-runtime-' + VERSION;
