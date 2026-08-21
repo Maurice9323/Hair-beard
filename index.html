@@ -6,8 +6,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="The Regimen">
-<link rel="manifest" href="/hair-beard/manifest.json">
-<link rel="apple-touch-icon" href="/hair-beard/icon-192.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#D4A017">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>The Regimen — Scalp, Skin & Beard Protocol</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -1057,6 +1059,36 @@ footer{padding:3rem 1.25rem 2rem;text-align:center;border-top:1px solid var(--ri
 
   setActive();
 })();
+
+/* ---------- service worker ---------- */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js')
+      .then(function (reg) {
+        // If a new version installs while the page is open, activate it
+        // and reload once so the user isn't stuck on a stale copy.
+        reg.addEventListener('updatefound', function () {
+          var incoming = reg.installing;
+          if (!incoming) return;
+          incoming.addEventListener('statechange', function () {
+            if (incoming.state === 'installed' && navigator.serviceWorker.controller) {
+              incoming.postMessage('SKIP_WAITING');
+            }
+          });
+        });
+      })
+      .catch(function (err) {
+        console.warn('[sw] registration failed:', err);
+      });
+
+    var refreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (refreshing) return;
+      refreshing = true;
+      window.location.reload();
+    });
+  });
+}
 </script>
 
 </body>
